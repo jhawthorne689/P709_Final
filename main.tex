@@ -1,0 +1,77 @@
+\documentclass[20pt,,margin=1in,innermargin=-4.5in,blockverticalspace=-0.25in]{tikzposter}
+\geometry{paperwidth=42in,paperheight=32.5in}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{SUtheme}
+
+\usepackage{mwe} % for placeholder images
+
+\addbibresource{refs.bib}
+
+% set theme parameters
+\tikzposterlatexaffectionproofoff
+\usetheme{SUTheme}
+\usecolorstyle{SUStyle}
+\usetitlestyle{Filled}
+
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+
+
+\title{Topological Quantum Computing}
+% TODO: add real names
+\author{Krug \\Krog\\ Grug}
+\institute{University of Wisconsin}
+\titlegraphic{\includegraphics[width=0.06\textwidth]{logo/red-UWcrest-print.eps}}
+
+% begin document
+\begin{document}
+\maketitle
+\centering
+\begin{columns}
+    \column{0.32}
+    \block{Introduction}{
+         example of text
+         \newline
+         $inline-math$
+         \begin{equation}
+             equation
+         \end{equation}
+         citation
+         \cite{cite:0}
+    }
+    \block{Anyons}{
+         
+    }
+   
+    \column{0.36}
+    \block{Braids \& Logic Gates}{
+
+
+        \begin{tikzfigure}[example of graphic]
+            \includegraphics[width=0.9\linewidth]{example-image}
+        \end{tikzfigure}
+    }
+
+    \column{0.32}
+    \block{Implementation}{
+        
+    }
+    
+    \block{References}{
+        \vspace{-1em}
+        \begin{footnotesize}
+        \printbibliography[heading=none]
+        \end{footnotesize}
+    }
+\end{columns}
+\end{document}
