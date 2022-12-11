@@ -1,5 +1,5 @@
 \documentclass[20pt,,margin=1in,innermargin=-4.5in,blockverticalspace=-0.25in]{tikzposter}
-\geometry{paperwidth=42in,paperheight=32.5in}
+\geometry{paperwidth=42in,paperheight=36in}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -28,10 +28,9 @@
 
 
 \title{Topological Quantum Computing}
-% TODO: add real names
-\author{Krug \\Krog\\ Grug}
+\author{Turner Entenmann, Hunter Hamby, John Hawthorne}
 \institute{University of Wisconsin}
-\titlegraphic{\includegraphics[width=0.06\textwidth]{red-UWcrest-print.eps}}
+\titlegraphic{\includegraphics[width=0.04\textwidth]{logo/red-UWcrest-print.eps}}
 
 % begin document
 \begin{document}
@@ -40,17 +39,39 @@
 \begin{columns}
     \column{0.32}
     \block{Introduction}{
-         example of text
-         \newline
-         $inline-math$
-         \begin{equation}
-             equation
-         \end{equation}
-         citation
-         \cite{cite:0}
+        \begin{itemize}
+            \item There are several ways to do quantum computing. This presentation will focus on topological quantum computing. 
+            \item Topological quantum computing uses quasiparticles called anyons as qubits. 
+            \item The logic gates in topological quantum computing are called braids. Braids are used in topology and act as transformations between particles.
+            \item While topological quantum computing is still highly theoretical, some people have already presented possible real life implementations. 
+            \item Topological quantum computing is of interest since it is inherently error resistant. Topology is only worried about global properties of the system and thus is resistant to local perturbations.
+        \end{itemize}
     }
-    \block{Anyons}{
-         
+    \block{Qubits - Anyons}{
+        \begin{itemize}
+            \item All particles in 3D are either Bosons (photons, gluons, $\ldots$) or Fermions (electrons, protons, $\ldots$) depending on how they behave under particle exchange. Bosons are symmetric: $\psi(\Vec{r}_1,\Vec{r}_2)=\psi(\Vec{r}_2,\Vec{r}_1)$ and Fermions are anti-symmetric: $\psi(\Vec{r}_1,\Vec{r}_2)=-\psi(\Vec{r}_2,\Vec{r}_1)$
+            \item Double adiabatic interchange of particles is physically the same as one particle traveling around the other. In 3D this is topologically the same as as neither particle moving because the path of the moving particle can be pulled around the stationary one and closed to a point
+        \end{itemize}
+        \begin{tikzfigure}[3D vs 2D topology of double exchange \cite{cite:1}]
+            \includegraphics[width=0.9\linewidth]{Images/2d3d.pdf}
+        \end{tikzfigure}
+        \begin{itemize}
+            \item In 2D the path of one particle traveling around another cannot be closed without being cut. Therefore, one particle traveling around another is topologically distinct from both particles remaining stationary
+             \item In this situation the interchange of particles introduces a phase $\theta$ that is not necessarily $0$ or $\pi$
+             \item Particles with such $\theta$ are called "anyons"
+             \item While there have been a handful of methods proposed (only some of which can be used to make a universal quantum computer), actually creating and manipulating anyons remains extremely difficult and most of the work in this area remains theoretical.
+             \item One of the most promising ways of generating anyons using the fractional quantum Hall effect.
+             \item The fractional quantum Hall effect comes from the classical Hall effect having quantized states that are not integer value.
+             \item Anyons are excitations of the ground state of the the fractional quantum Hall state.
+             \item While non-Abelian anyons have not been observed, this is currently the leading area of research to observe them.
+             \item Assuming that anyons exist and can be sufficiently isolated from the environment there are three operations that can be performed \cite{cite:1}
+             \begin{itemize}
+                 \item Pairwise creation and annihilation
+                 \item Pairwise fusion forming different types of anyons
+                 \item Adiabatic exchange
+             \end{itemize}
+             \item These operations allow us to construct qubits which we can entangle, manipulate and measure
+         \end{itemize}
     }
    
     \column{0.36}
@@ -64,7 +85,23 @@
 
     \column{0.32}
     \block{Implementation}{
+        \begin{center}
+            Quantum Hall Bar
+        \end{center}
         
+
+
+
+
+
+
+        
+        \begin{tikzfigure}[\cite{cite:2}]
+            \includegraphics[width=0.9\linewidth]{Images/Braids.pdf}
+        \end{tikzfigure}
+        \begin{tikzfigure}[\cite{cite:2}]
+            \includegraphics[width=0.9\linewidth]{Images/Hall_Bar.pdf}
+        \end{tikzfigure}
     }
     
     \block{References}{
