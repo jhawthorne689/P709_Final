@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \usepackage{adjustbox}
 \usepackage{enumitem}
+\usepackage{braket}
 \usepackage[backend=biber,style=numeric]{biblatex}
 \usepackage{SUtheme}
 
@@ -78,30 +79,79 @@
     \block{Braids \& Logic Gates}{
 
 
-        \begin{tikzfigure}[example of graphic]
-            \includegraphics[width=0.9\linewidth]{example-image}
+        \begin{tikzfigure}[The elementary braids corresponding to $X$, $Z$ Hadamard and controlled $Z$ in the Ising model \cite{cite:1}]
+            \includegraphics[width=0.5\linewidth]{Images/Ising_braids.pdf}
         \end{tikzfigure}
     }
 
     \column{0.32}
     \block{Implementation}{
         \begin{center}
-            Quantum Hall Bar
+            \textbf{\underline{Fibonacci Anyons} \cite{cite:1}}
         \end{center}
-        
-
-
-
-
-
-
-        
-        \begin{tikzfigure}[\cite{cite:2}]
-            \includegraphics[width=0.9\linewidth]{Images/Braids.pdf}
-        \end{tikzfigure}
-        \begin{tikzfigure}[\cite{cite:2}]
-            \includegraphics[width=0.9\linewidth]{Images/Hall_Bar.pdf}
-        \end{tikzfigure}
+        \begin{itemize}
+            \item One possible method of implementing a topological computer is using Fibonacci anyons
+            \item Fibonacci anyons are the simplest non-Abelian anyon, there is only one anyon $\tau$ which is its own anti-particle and two $\tau$ anyons can behave like a single $\tau$ anyon. The fusion rule is
+        \end{itemize}
+        \begin{gather*}
+            \tau\times\tau=1+\tau
+        \end{gather*}
+        \begin{itemize}
+            \item Repeated associative application of the fusion rule shows the number of different ways the fusion can result in either the vacuum $1$ or the anyon $\tau$
+        \end{itemize}
+        \begin{align*}
+            \tau\times\tau\times\tau&=1+2\cdot\tau\\
+            \tau\times\tau\times\tau\times\tau&=2\cdot1+3\cdot\tau\\
+            \tau\times\tau\times\tau\times\tau\times\tau&=3\cdot1+5\cdot\tau\\
+        \end{align*}
+        \begin{itemize}
+            \item The encoding requires three $\tau$ anyons constrained to fuse to a single $\tau$ particle
+            \item A basis in this situation is $\ket{(\tau\tau)\tau;1\tau;\tau}$ and $\ket{(\tau\tau)\tau;\tau\tau:\tau}$
+            \item The fusion and braiding matrices are then $\left(\phi=\frac{1+\sqrt{5}}{2}\right)$
+        \end{itemize}
+        \begin{align*}
+            F&=\begin{pmatrix}
+                \phi^{-1}&\phi^{-1/2}\\\phi^{-1/2}&\phi^{-1}
+            \end{pmatrix}&
+            R&=\begin{pmatrix}
+                e^{\frac{4\pi i}{5}}&0\\0&e^{\frac{-3\pi i}{5}}
+            \end{pmatrix}
+        \end{align*}
+        \begin{itemize}
+            \item Because $F^{-1}RF$ is dense in $SU(2)$, any single qubit gate can be approximated to arbitrary accuracy
+            \item This would seem to make Fibonacci anyons an obvious choice for topological quantum computing, unfortunately, there are two major problems
+            \begin{itemize}
+                \item Fibonacci anyons lack a tensor product, therefore only a subspace of the full fusion space can be used to encode information.
+                \item The other problem is that approximating gates requires many braids. For example, the $NOT$ gate requires thousands of braids
+            \end{itemize}
+            \item There is no practical implementation of Fibonacci anyons (yet)
+        \end{itemize}
+        \begin{center}
+            \textbf{\underline{Ising Anyons} \cite{cite:1}}
+        \end{center}
+        \begin{itemize}
+            \item The Ising anyon model consists of two non-trivial particles $\psi$ a fermion and $\sigma$ an anyon together with the vacuum $1$.
+            \item They obey the fusion rules
+        \end{itemize}
+        \begin{align*}
+            1\times1&=1 & 1\times\psi&=\psi & 1\times\sigma=\sigma\\
+            \psi\times\psi&=1 & \psi\times\sigma&=\sigma & \sigma\times\sigma&=1+\psi
+        \end{align*}
+        \begin{itemize}
+            \item These rules give raise to the following fusion and braiding matrices:
+        \end{itemize}
+        \begin{align*}
+            F&=\frac{1}{\sqrt{2}}
+            \begin{pmatrix}
+                1&1\\1&-1
+            \end{pmatrix} & R&=e^{-i\frac{\pi}{8}}
+            \begin{pmatrix}
+                1&0\\0&e^{i\frac{\pi}{2}}
+            \end{pmatrix}
+        \end{align*}
+        \begin{itemize}
+            \item Unfortunately, no combination of $F$ and $R$ are dense in $SU(2)$ so Ising anyons cannot make a universal quantum computer. They can however, implement the Clifford group and so has some utility
+        \end{itemize}
     }
     
     \block{References}{
