@@ -77,8 +77,26 @@
    
     \column{0.36}
     \block{Braids \& Logic Gates}{
+        \begin{itemize}
+            \item For a system of N anyons we can represent the quasiparticle exchange trajectories via the Braid Group.
+        \end{itemize}
+        \begin{gather*}
+            \mathbb{B}_n = \langle \sigma_1 \sigma_2\ldots\sigma_{n-1} | \sigma_i \sigma_j = \sigma_j \sigma_i \text{ for } |i-j|>1, \sigma_i \simga_{i+1}\sigma_i = \sigma_{i+1}\sigma_i \sigma_{i+1} \rangle
+        \end{gather*}
+        \begin{itemize}
+            \item The elements generating the Braid group represent the homotopic equivalence classes of the exchange directories. 
+            \item For n=1, the Braid group is represented by a phase $e^{im\theta}$ and is an abelian system of two braids.
+            \item Suppose a system of n>2 identical anyons, then we have a non-Abelian system represented by a n
+        \end{itemize}
+        \begin
 
 
+
+
+
+
+
+    
         \begin{tikzfigure}[The elementary braids corresponding to $X$, $Z$ Hadamard and controlled $Z$ in the Ising model \cite{cite:1}]
             \includegraphics[width=0.5\linewidth]{Images/Ising_braids.pdf}
         \end{tikzfigure}
@@ -134,7 +152,7 @@
             \item They obey the fusion rules
         \end{itemize}
         \begin{align*}
-            1\times1&=1 & 1\times\psi&=\psi & 1\times\sigma=\sigma\\
+            1\times1&=1 & 1\times\psi&=\psi & 1\times\sigma&=\sigma\\
             \psi\times\psi&=1 & \psi\times\sigma&=\sigma & \sigma\times\sigma&=1+\psi
         \end{align*}
         \begin{itemize}
